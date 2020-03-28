@@ -1,0 +1,102 @@
+<html>
+<head>
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<style>
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+}
+
+.button2 {background-color: #008CBA;} /* Blue */
+</style>
+
+    <script>
+		
+function clickCounter() {
+  if (typeof(Storage) !== "undefined") {
+  
+    if (localStorage.clickcount) {
+      localStorage.clickcount = Number(localStorage.clickcount)+1;
+    } else {
+      localStorage.clickcount = 1;
+    }
+    document.getElementById("result").innerHTML = localStorage.clickcount ;
+  } else {
+ 
+  }
+}
+
+function deleteCounter(){
+localStorage.clickcount=0;
+document.getElementById("result").innerHTML = localStorage.clickcount;
+
+}
+</script>
+   </head>
+
+<body >
+<!--<p style="text-align: center">Click anywhere to count!</p>-->
+<div onclick="clickCounter()" style=" height: 100%;
+    width: 100%;">
+<div id="result" style="position: absolute;
+  left: 50%;
+  text-align: center;
+  font-size: 200px;
+  top: 20%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%)"></div>
+
+<!--<div  style="position: absolute;-->
+<!--  left: 50%;-->
+<!--  text-align: center;-->
+<!--  bottom: 20%;-->
+<!--  -webkit-transform: translateX(-50%);-->
+<!--  transform: translateX(-50%)">-->
+<!--&lt;!&ndash;<button class="button" onclick="clickCounter()">Count</button> <br>&ndash;&gt;-->
+<!--&lt;!&ndash;<button class="button button2" onclick="deleteCounter()">Clear Counter</button>&ndash;&gt;-->
+<!--</div>-->
+
+
+ <script type="text/javascript" src="cordova.js"></script>
+ <script src="js/index.js"></script>
+ <script>
+     if (typeof(Storage) !== "undefined") {
+         if(localStorage.clickcount){
+             console.log(localStorage.clickcount);
+         }else {
+             localStorage.clickcount=0;
+         }
+
+             document.getElementById("result").innerHTML = localStorage.clickcount;
+
+     }
+
+ </script>
+</div>
+<!--<button class="button button2" onclick="deleteCounter()">Clear Counter</button>-->
+<div  style="position: absolute;
+  left: 50%;
+  text-align: center;
+  bottom: 15%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%)">
+    <!--<button class="button" onclick="clickCounter()">Count</button> <br>-->
+    <button class="button button2" onclick="deleteCounter()">Clear Counter</button>
+<!--    <p style="text-align: center">I will remember your counted values after app closes</p>-->
+
+</div>
+</body>
+</html>
